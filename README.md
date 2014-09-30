@@ -1,9 +1,9 @@
 # googlescraper
 
-Important) This is joke program. Screen scraping is prohibited by google's terms.
+Important) This is joke program. Screen scraping is prohibited by google's terms.  
+If you wanna use this, use at your own lisk.  
 
-This library screen scraping to google search result.
-
+This library screen scrape to google search result.
 
 ## Usage
 
