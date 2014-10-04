@@ -46,7 +46,7 @@
 (defn get-sites-by-keyword [k start]
   (let [a-tags (e/select
                  (google-by-keyword-scrape-result-with-sleep
-                   k start sleeptime
+                   k start (sleeptime))
                  [:h3 :a]
                )
         a-list (map #(get-in % [:attrs :href]) a-tags)
