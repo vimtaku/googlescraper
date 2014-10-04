@@ -40,7 +40,7 @@
 )
 
 (defn sleeptime []
-  (+ 2000 (rand 3000))
+  (+ 2000 (rand-int 3000))
 )
 
 (defn get-sites-by-keyword [k start]
