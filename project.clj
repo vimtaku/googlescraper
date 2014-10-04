@@ -10,5 +10,6 @@
                  [enlive "1.1.5"]
                  [clj-http "1.0.0"]
                  [org.clojure/data.json "0.2.5"]
+                 [clojure-csv/clojure-csv "2.0.1"]
                  ]
   )

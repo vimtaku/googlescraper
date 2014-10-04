@@ -1,4 +1,5 @@
 (ns googlescraper.core
+  (:gen-class)
   (:use [clojure.java.io])
   (:require
     [net.cgrand.enlive-html :as e]
@@ -38,10 +39,14 @@
   (google-by-keyword-scrape-result k start)
 )
 
+(defn sleeptime []
+  (+ 2000 (rand 3000))
+)
 
 (defn get-sites-by-keyword [k start]
   (let [a-tags (e/select
-                 (google-by-keyword-scrape-result-with-sleep k start 1000)
+                 (google-by-keyword-scrape-result-with-sleep
+                   k start sleeptime
                  [:h3 :a]
                )
         a-list (map #(get-in % [:attrs :href]) a-tags)
@@ -58,8 +63,8 @@
           :else (inner-search-google (next li) (+ n 1))
     )
   )
-  (println "searching...")
-  (println start)
+  ;; (println "searching...")
+  ;; (println start)
   (let [
         result (get-sites-by-keyword k start)
         rank (inner-search-google result start)
@@ -73,10 +78,9 @@
     )
   )
 )
-
 (defn get-keyword-rank
-  ([k host] (search-google k host 0 100))
-  ([k host till] (search-google k host 0 till))
+  ([k host] (inc (search-google k host 0 50)))
+  ([k host till] (inc (search-google k host 0 till)))
 )
 
 
